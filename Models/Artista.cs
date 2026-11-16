@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using musicasWEB.API.Repositories;
 
 namespace musicasWEB.API.Models;
 
-public partial class Artista
+public partial class Artista : Classe
 {
+    [NotMapped]
+    public override Guid Id
+    {
+        get => IdArtista;
+        set => IdArtista = value;
+    }
+
     [Key]
     [Column("idArtista")]
     public Guid IdArtista { get; set; }

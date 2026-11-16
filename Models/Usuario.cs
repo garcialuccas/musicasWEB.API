@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using musicasWEB.API.Repositories;
 
 namespace musicasWEB.API.Models;
 
 [Index("Email", Name = "UQ__Usuario__AB6E61648158B414", IsUnique = true)]
-public partial class Usuario
+public partial class Usuario : Classe
 {
+
+    [NotMapped]
+    public new Guid Id
+    {
+        get => IdUsuario;
+        set => IdUsuario = value;
+    }
+
     [Key]
     [Column("idUsuario")]
     public Guid IdUsuario { get; set; }

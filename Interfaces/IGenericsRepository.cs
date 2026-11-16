@@ -1,4 +1,6 @@
-﻿namespace musicasWEB.API.Interfaces
+﻿using musicasWEB.API.Models;
+
+namespace musicasWEB.API.Interfaces
 {
     public interface IGenericsRepository<T> where T : class
     {
@@ -10,5 +12,8 @@
         Task atualizar(Guid id, T entity);
 
         Task deletar(Guid id);
+
+        Task<Album> ListaDeMusica(Guid id);
+        Task<(List<T> lista, int total)> listarPaginado(int pagina = 1, int tamanhoPagina = 10, string? busca = null);
     }
 }
