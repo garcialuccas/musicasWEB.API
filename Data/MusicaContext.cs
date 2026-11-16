@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using musicasWEB.API.Models;
 
-namespace musicasWEB.API.BdContextEvent;
+namespace musicasWEB.API.Data;
 
-public partial class EventContext : DbContext
+public partial class MusicaContext : DbContext
 {
-    public EventContext()
+    public MusicaContext()
     {
     }
 
-    public EventContext(DbContextOptions<EventContext> options)
+    public MusicaContext(DbContextOptions<MusicaContext> options)
         : base(options)
     {
     }
